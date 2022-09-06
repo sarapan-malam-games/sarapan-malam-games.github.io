@@ -2,10 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sarapan-malam-games.github.io/categories/</loc>
+    <loc>https://sarapan-malam-games.github.io/tags/first/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/project/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sarapan-malam-games.github.io/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
   </url><url>
     <loc>https://sarapan-malam-games.github.io/tags/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/project/test/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/tutorial/test/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/tutorial/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/categories/</loc>
+  </url><url>
+    <loc>https://sarapan-malam-games.github.io/search/</loc>
   </url>
 </urlset>
