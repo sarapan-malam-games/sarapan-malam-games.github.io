@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Menggerakan Karakter Platformer - Level Dasar | Godot 4 | Sarapan Malam</title>
+<meta name="keywords" content="Tutorial, Platformer, Pemula, CharacterBody2D, Godot4, 2D">
+<meta name="description" content="Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
+🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
+ProjectTemplate.zip
+Didalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.
+✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
+@export var movespeed := 10000.0 @export var jump_force := 1000.">
+<meta name="author" content="Sarapan">
+<link rel="canonical" href="https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sarapan-malam-games.github.io/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sarapan-malam-games.github.io/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sarapan-malam-games.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Menggerakan Karakter Platformer - Level Dasar | Godot 4" />
+<meta property="og:description" content="Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
+🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
+ProjectTemplate.zip
+Didalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.
+✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
+@export var movespeed := 10000.0 @export var jump_force := 1000." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/" /><meta property="og:image" content="https://sarapan-malam-games.github.io/papermod-cover.png"/><meta property="article:section" content="tutorial" />
+<meta property="article:published_time" content="2022-09-08T07:41:30+08:00" />
+<meta property="article:modified_time" content="2022-09-08T07:41:30+08:00" /><meta property="og:site_name" content="Sarapan Malam" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sarapan-malam-games.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Menggerakan Karakter Platformer - Level Dasar | Godot 4"/>
+<meta name="twitter:description" content="Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
+🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
+ProjectTemplate.zip
+Didalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.
+✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
+@export var movespeed := 10000.0 @export var jump_force := 1000."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Tutorials",
+      "item": "https://sarapan-malam-games.github.io/tutorial/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Menggerakan Karakter Platformer - Level Dasar | Godot 4",
+      "item": "https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Menggerakan Karakter Platformer - Level Dasar | Godot 4",
+  "name": "Menggerakan Karakter Platformer - Level Dasar | Godot 4",
+  "description": "Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.\n🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu\nProjectTemplate.zip\nDidalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.\n✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut\n@export var movespeed := 10000.0 @export var jump_force := 1000.",
+  "keywords": [
+    "Tutorial", "Platformer", "Pemula", "CharacterBody2D", "Godot4", "2D"
+  ],
+  "articleBody": "Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.\n🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu\nProjectTemplate.zip\nDidalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.\n✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut\n@export var movespeed := 10000.0 @export var jump_force := 1000.0 @export var gravity := 3000.0 @export var direction := 0.0 Saya akan menjelaskan kegunaan dari variable diatas\nmovespeed mengatur kecepatan gerak player jump_force mengatur kekuatan / ketinggian player saat melompat gravity mengatur gravitasi player direction digunakan sebagai penanda yang menampung nilai dari hasil Input (arah kiri dan kanan) dari user dan juga mengatur arah gerak player Catatan: Nilai variabel movespeed, jump_force dan gravity tergantung pada ukuran Sprite. Kamu harus menyesuaikan nilai variabelnya supaya lebih responsif.\nTambahkan beberapa baris kode berikut\nfunc _physics_process(delta: float) -\u003e void:\rmove_and_slide()\rif not is_on_floor():\rvelocity.y += gravity * delta\rdirection = Input.get_axis(\"move_left\", \"move_right\")\rvelocity.x = (movespeed * direction) * delta\rif direction:\r$Sprite2d.flip_h = direction \u003c= 0.0\rif Input.is_action_just_pressed(\"jump\") and is_on_floor():\rvelocity.y = -jump_force\rif Input.is_action_just_released(\"jump\") and velocity.y \u003c -jump_force/2:\rvelocity.y = -jump_force/2 Saya akan menjelaskan apa saja maksud dari barisan kode diatas, kita mulai dengan kode dibawah\nfunc _physics_process(delta: float) -\u003e void: Fungsi akan selalu dipanggil selama game berjalan, secara default fungsi ini dipanggil 60 kali per detik. pada fungsi ini kita akan melakukan perhitungan fisika. Parameter delta pada fungsi _physics_process adalah waktu antara setiap frame, kita dapat mengkalikan kecepatan gerak node Player dengan parameter ini, sehingga node Player bergerak berdasarkan piksel per detik, bukan piksel per frame.\nSelanjutnya kita tambahkan sebuah fungsi dibawah yang akan mengkalkulasi perhitungan dari variable velocity, sehingga node Player bisa bergerak dari posisi sekarang ke posisi lainnya.\nmove_and_slide() Kita akan membuat node Player memiliki gravitasi, jika node Player tidak menyentuh tanah / pijakan maka node player akan bergerak ke bawah dan akan berhenti sampai dia menemukan tanah / pijakan, dengan itu kita menggunakan kode berikut.\nif not is_on_floor():\rvelocity.y += gravity * delta Sekarang kita mengatur arah gerak untuk node Player, agar nanti node Player bisa bergerak ke arah kanan dan kiri. Pada argument Input.get_axis(... akan mengkalkulasi nilai input dari user ketika user menekan key dengan alias move_left atau move_right kemudian nilai tersebut kita tetapkan ke variabel direction, dengan hal itu kita sudah mengatur arah gerak untuk node Player.\ndirection = Input.get_axis(\"move_left\", \"move_right\") Setelah arah gerak kita atur, selanjutnya kita membuat node Player bisa bergerak / berjalan horizontal dengan cara mengkalikan variabel movespeed, direction dan delta dan hasil nilainya kita tetapkan ke variable velocity.x, dengan itu kita mendapatkan nilai besaran yang kita butuhkan untuk bisa bergerak / berjalan secara horizontal.\nvelocity.x = movespeed - direction - delta; Selanjutnya kita mengatur posisi texture sesuai dengan arah gerak node Player. Kita buat kondisi jika variabel direction bukan sama dengan 0.0, kemudan untuk nilai $Sprite2d.flip_h kita tetapkan nilai dengan kondisi jika direction kurang dari 0.0 maka $Sprite2d.flip_h bernilai true.\nNote: .flip_h adalah property dari node Sprite2d\nif direction: $Sprite2d.flip_h = direction \u003c= 0.0 Sekarang saatnya kita membuat node Player bisa melompat dengan cara, membuat sebuah kondisi dimana saat user menekan key dengan alias jump dan posisi node Player berada pada tanah / sedang berpijak, maka kita menetapkan variabel velocity.y dengan nilai negatif jump_force agar posisi node Player bergerak keatas.\nif Input.is_action_just_pressed(\"jump\") and is_on_floor():\rvelocity.y = -jump_force Oke saya rasa sampai disini node Player kita sudah bisa bergerak sesuai dengan harapakan kita sebelumnya yaitu bisa berjalan, jatuh dan melompat.\nSemoga tutorial kita kali ini dapat teman-teman pahami dan dipraktekan dengan baik. Terimakasih telah membaca dan jangan lupa untuk mempraktekkannya.\n👏 Referensi https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html https://godottutorials.pro/how-to-make-games-godot/ https://kidscancode.org/godot_recipes/2d/platform_character/ http://kidscancode.org/godot_recipes/basics/understanding_delta/ ",
+  "wordCount" : "617",
+  "inLanguage": "en",
+  "datePublished": "2022-09-08T07:41:30+08:00",
+  "dateModified": "2022-09-08T07:41:30+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Sarapan"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sarapan Malam",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sarapan-malam-games.github.io/favicon/favicon-16x16.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://sarapan-malam-games.github.io/" accesskey="h" title="Sarapan Malam (Alt + H)">Sarapan Malam</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://sarapan-malam-games.github.io/project/" title="🗃️ Projects">
+                    <span>🗃️ Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/solution/" title="💡 Solutions">
+                    <span>💡 Solutions</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/tutorial/" title="📖 Tutorials">
+                    <span>📖 Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/search/" title="🔍 Search (Alt &#43; /)" accesskey=/>
+                    <span>🔍 Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.itch.io/" title="Itch">
+                    <span>Itch</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/sarapan-malam-games" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://sarapan-malam-games.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://sarapan-malam-games.github.io/tutorial/">Tutorials</a></div>
+    <h1 class="post-title">
+      Menggerakan Karakter Platformer - Level Dasar | Godot 4
+    </h1>
+    <div class="post-meta"><span title='2022-09-08 07:41:30 +0800 +08'>September 8, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;617 words&nbsp;·&nbsp;Sarapan
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#-persiapan" aria-label="🖐 Persiapan">🖐 Persiapan</a></li>
+                <li>
+                    <a href="#-mulai" aria-label="✍️ Mulai">✍️ Mulai</a></li>
+                <li>
+                    <a href="#-referensi" aria-label="👏 Referensi">👏 Referensi</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat <em>berjalan</em>, <em>jatuh</em> dan <em>melompat</em>.</p>
+<hr>
+<h2 id="-persiapan">🖐 Persiapan<a hidden class="anchor" aria-hidden="true" href="#-persiapan">#</a></h2>
+<p>Kita akan mulai dengan mendownload Project Template terlebih dahulu</p>
+<blockquote>
+<p><a href="https://github.com/sarapan-malam-games/godot-tutorials/raw/main/level-dasar/menggerakan-karakter-platformer/menggerakan-karakter-platformer-start.zip">ProjectTemplate.zip</a></p>
+</blockquote>
+<p>Didalam Project Template sudah berisi node <strong>Player</strong> dan <strong>Ground</strong>.
+Node <strong>Ground</strong> digunakan untuk tempat node <strong>Player</strong> Berpijak nantinya.</p>
+<p><img loading="lazy" src="img/project-template-preview.png" alt="Project Template preview"  />
+</p>
+<hr>
+<h2 id="-mulai">✍️ Mulai<a hidden class="anchor" aria-hidden="true" href="#-mulai">#</a></h2>
+<ol>
+<li>
+<p>Setelah Project Template terbuka, klik icon script pada node <strong>Player</strong>
+<img loading="lazy" src="img/script-icon.png" alt="Script icon"  />
+</p>
+</li>
+<li>
+<p>Didalam script node <strong>Player</strong> buat variable seperti berikut</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="err">@</span><span class="kr">export</span> <span class="kd">var</span> <span class="nx">movespeed</span> <span class="o">:=</span> <span class="mf">10000.0</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="kr">export</span> <span class="kd">var</span> <span class="nx">jump_force</span> <span class="o">:=</span> <span class="mf">1000.0</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="kr">export</span> <span class="kd">var</span> <span class="nx">gravity</span> <span class="o">:=</span> <span class="mf">3000.0</span>
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="kr">export</span> <span class="kd">var</span> <span class="nx">direction</span> <span class="o">:=</span> <span class="mf">0.0</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>Saya akan menjelaskan kegunaan dari variable diatas</p>
+<ul>
+<li><code>movespeed</code> mengatur kecepatan gerak player</li>
+<li><code>jump_force</code> mengatur kekuatan / ketinggian player saat melompat</li>
+<li><code>gravity</code> mengatur gravitasi player</li>
+<li><code>direction</code> digunakan sebagai penanda yang menampung nilai dari hasil Input (arah kiri dan kanan) dari user dan juga mengatur arah gerak player</li>
+</ul>
+<blockquote>
+<p>Catatan: Nilai variabel <code>movespeed</code>, <code>jump_force</code> dan <code>gravity</code> tergantung pada ukuran Sprite. Kamu harus menyesuaikan nilai variabelnya supaya lebih responsif.</p>
+</blockquote>
+<ol start="3">
+<li>
+<p>Tambahkan beberapa baris kode berikut</p>
+<pre tabindex="0"><code>func _physics_process(delta: float) -&gt; void:
+  move_and_slide()
+
+  if not is_on_floor():
+    velocity.y += gravity * delta
+
+  direction = Input.get_axis(&#34;move_left&#34;, &#34;move_right&#34;)
+  velocity.x = (movespeed * direction) * delta
+
+  if direction:
+    $Sprite2d.flip_h = direction &lt;= 0.0
+
+  if Input.is_action_just_pressed(&#34;jump&#34;) and is_on_floor():
+    velocity.y = -jump_force
+
+  if Input.is_action_just_released(&#34;jump&#34;) and velocity.y &lt; -jump_force/2:
+    velocity.y = -jump_force/2
+</code></pre></li>
+</ol>
+<p>Saya akan menjelaskan apa saja maksud dari barisan kode diatas, kita mulai dengan kode dibawah</p>
+<pre tabindex="0"><code>func _physics_process(delta: float) -&gt; void:
+</code></pre><p>Fungsi akan selalu dipanggil selama game berjalan, secara default fungsi ini dipanggil 60 kali per detik. pada fungsi ini kita akan melakukan perhitungan fisika. Parameter <code>delta</code> pada fungsi <code>_physics_process</code> adalah waktu antara setiap frame, kita dapat mengkalikan kecepatan gerak node <strong>Player</strong> dengan parameter ini, sehingga node <strong>Player</strong> bergerak berdasarkan piksel per detik, bukan piksel per frame.</p>
+<p>Selanjutnya kita tambahkan sebuah fungsi dibawah yang akan mengkalkulasi perhitungan dari variable <code>velocity</code>, sehingga node <strong>Player</strong> bisa bergerak dari posisi sekarang ke posisi lainnya.</p>
+<pre tabindex="0"><code>move_and_slide()
+</code></pre><p>Kita akan membuat node <strong>Player</strong> memiliki gravitasi, jika node <strong>Player</strong> tidak menyentuh tanah / pijakan maka node player akan bergerak ke bawah dan akan berhenti sampai dia menemukan tanah / pijakan, dengan itu kita menggunakan kode berikut.</p>
+<pre tabindex="0"><code>if not is_on_floor():
+  velocity.y += gravity * delta
+</code></pre><p><img loading="lazy" src="img/player-gravity.gif" alt="&lt;em&gt;Player&lt;/em&gt; with gravity"  />
+</p>
+<p>Sekarang kita mengatur arah gerak untuk node <strong>Player</strong>, agar nanti node <strong>Player</strong> bisa bergerak ke arah kanan dan kiri. Pada argument <code>Input.get_axis(...</code> akan mengkalkulasi nilai input dari user ketika user menekan key dengan alias <code>move_left</code> atau <code>move_right</code> kemudian nilai tersebut kita tetapkan ke variabel <code>direction</code>, dengan hal itu kita sudah mengatur arah gerak untuk node <strong>Player</strong>.</p>
+<pre tabindex="0"><code>direction = Input.get_axis(&#34;move_left&#34;, &#34;move_right&#34;)
+</code></pre><p>Setelah arah gerak kita atur, selanjutnya kita membuat node <strong>Player</strong> bisa bergerak / berjalan horizontal dengan cara mengkalikan variabel <code>movespeed</code>, <code>direction</code> dan <code>delta</code> dan hasil nilainya kita tetapkan ke variable <code>velocity.x</code>, dengan itu kita mendapatkan nilai besaran yang kita butuhkan untuk bisa bergerak / berjalan secara horizontal.</p>
+<pre tabindex="0"><code>velocity.x = movespeed - direction - delta;
+</code></pre><p>Selanjutnya kita mengatur posisi texture sesuai dengan arah gerak node <strong>Player</strong>. Kita buat kondisi jika variabel <code>direction</code> bukan sama dengan <code>0.0</code>, kemudan untuk nilai <code>$Sprite2d.flip_h</code> kita tetapkan nilai dengan kondisi jika <code>direction</code> kurang dari <code>0.0</code> maka <code>$Sprite2d.flip_h</code> bernilai <code>true</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> <code>.flip_h</code> adalah property dari node <strong>Sprite2d</strong></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">direction</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">$Sprite2d</span><span class="p">.</span><span class="nx">flip_h</span> <span class="o">=</span> <span class="nx">direction</span> <span class="o">&lt;=</span> <span class="mf">0.0</span>
+</span></span></code></pre></div><p><img loading="lazy" src="img/player-move.gif" alt="&lt;em&gt;Player&lt;/em&gt; with gravity"  />
+</p>
+<p>Sekarang saatnya kita membuat node <strong>Player</strong> bisa melompat dengan cara, membuat sebuah kondisi dimana saat user menekan key dengan alias <code>jump</code> dan posisi node <strong>Player</strong> berada pada tanah / sedang berpijak, maka kita menetapkan variabel <code>velocity.y</code> dengan nilai negatif <code>jump_force</code> agar posisi node <strong>Player</strong> bergerak keatas.</p>
+<pre tabindex="0"><code>if Input.is_action_just_pressed(&#34;jump&#34;) and is_on_floor():
+  velocity.y = -jump_force
+</code></pre><p><img loading="lazy" src="img/player-jump.gif" alt="&lt;em&gt;Player&lt;/em&gt; with gravity"  />
+</p>
+<p>Oke saya rasa sampai disini node <strong>Player</strong> kita sudah bisa bergerak sesuai dengan harapakan kita sebelumnya yaitu bisa <em>berjalan</em>, <em>jatuh</em> dan <em>melompat</em>.</p>
+<p>Semoga tutorial kita kali ini dapat teman-teman pahami dan dipraktekan dengan baik.
+Terimakasih telah membaca dan jangan lupa untuk mempraktekkannya.</p>
+<hr>
+<h2 id="-referensi">👏 Referensi<a hidden class="anchor" aria-hidden="true" href="#-referensi">#</a></h2>
+<ul>
+<li><a href="https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html">https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html</a></li>
+<li><a href="https://godottutorials.pro/how-to-make-games-godot/">https://godottutorials.pro/how-to-make-games-godot/</a></li>
+<li><a href="https://kidscancode.org/godot_recipes/2d/platform_character/">https://kidscancode.org/godot_recipes/2d/platform_character/</a></li>
+<li><a href="http://kidscancode.org/godot_recipes/basics/understanding_delta/">http://kidscancode.org/godot_recipes/basics/understanding_delta/</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://sarapan-malam-games.github.io/tags/tutorial/">Tutorial</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/platformer/">Platformer</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/pemula/">Pemula</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/characterbody2d/">CharacterBody2D</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/godot4/">Godot4</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/2d/">2D</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://sarapan-malam-games.github.io/tutorial/test/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Title</span>
+  </a>
+</nav>
+
+  </footer><div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function () {
+    
+    
+    if (window.location.hostname == "localhost") return;
+
+    var dsq = document.createElement("script");
+    dsq.type = "text/javascript";
+    dsq.async = true;
+    var disqus_shortname = "";
+    dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+    (
+      document.getElementsByTagName("head")[0] ||
+      document.getElementsByTagName("body")[0]
+    ).appendChild(dsq);
+  })();
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+<a href="https://disqus.com/" class="dsq-brlink"
+  >comments powered by <span class="logo-disqus">Disqus</span></a
+>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://sarapan-malam-games.github.io/">Sarapan Malam</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

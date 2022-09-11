@@ -1,1 +1,3 @@
 User-agent: *
+Disallow:
+Sitemap: https://sarapan-malam-games.github.io/sitemap.xml
