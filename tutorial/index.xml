@@ -9,7 +9,21 @@
       <link>https://sarapan-malam-games.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 07:41:30 +0800</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Menggerakan Karakter Platformer - Level Dasar | Godot 4</title>
+      <link>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</link>
+      <pubDate>Thu, 08 Sep 2022 07:41:30 +0800</pubDate>
+      
+      <guid>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</guid>
+      <description>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
+🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
+ProjectTemplate.zip
+Didalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.
+✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
+@export var movespeed := 10000.0 @export var jump_force := 1000.</description>
+    </item>
+    
     <item>
       <title>Title</title>
       <link>https://sarapan-malam-games.github.io/tutorial/test/</link>
