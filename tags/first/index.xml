@@ -9,7 +9,16 @@
       <link>https://sarapan-malam-games.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 07 Sep 2022 02:22:16 +0800</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 11:11:27 +0800</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/tags/first/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shader 2d Dasar</title>
+      <link>https://sarapan-malam-games.github.io/tutorial/shader-2d-dasar/</link>
+      <pubDate>Sat, 17 Sep 2022 11:11:27 +0800</pubDate>
+      
+      <guid>https://sarapan-malam-games.github.io/tutorial/shader-2d-dasar/</guid>
+      <description> 🖐 Persiapan ✍️ Mulai 👏 Referensi </description>
+    </item>
+    
     <item>
       <title>Test</title>
       <link>https://sarapan-malam-games.github.io/solution/test/</link>
