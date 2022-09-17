@@ -18,10 +18,10 @@
       <guid>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</guid>
       <description>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
 🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
-ProjectTemplate.zip
+Project Template
 Didalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.
 ✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
-@export var movespeed := 10000.0 @export var jump_force := 1000.</description>
+@export var movespeed := 10000.</description>
     </item>
     
   </channel>

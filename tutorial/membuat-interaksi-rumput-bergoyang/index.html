@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Membuat Interaksi Rumput Bergoyang | Godot 4 | Sarapan Malam</title>
+<meta name="keywords" content="Tutorial, Godot4, 2D, Grass Sway">
+<meta name="description" content="Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
+🖐 Persiapan Unduh Project Template Berikut untuk memulai:
+Project Template
+Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:
+Collision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya Node Player, Tilemap, Grass sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu Struktur Project Template: ✍️ Mulai Buka Project Template, kemudian buka Shader Editor (berada dipanel bawah).">
+<meta name="author" content="Sarapan">
+<link rel="canonical" href="https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sarapan-malam-games.github.io/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sarapan-malam-games.github.io/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sarapan-malam-games.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Membuat Interaksi Rumput Bergoyang | Godot 4" />
+<meta property="og:description" content="Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
+🖐 Persiapan Unduh Project Template Berikut untuk memulai:
+Project Template
+Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:
+Collision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya Node Player, Tilemap, Grass sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu Struktur Project Template: ✍️ Mulai Buka Project Template, kemudian buka Shader Editor (berada dipanel bawah)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/" />
+<meta property="og:image" content="https://sarapan-malam-games.github.io/img/cover.png" /><meta property="article:section" content="tutorial" />
+<meta property="article:published_time" content="2022-09-16T09:43:10+08:00" />
+<meta property="article:modified_time" content="2022-09-16T09:43:10+08:00" /><meta property="og:site_name" content="Sarapan Malam" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://sarapan-malam-games.github.io/img/cover.png" />
+<meta name="twitter:title" content="Membuat Interaksi Rumput Bergoyang | Godot 4"/>
+<meta name="twitter:description" content="Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
+🖐 Persiapan Unduh Project Template Berikut untuk memulai:
+Project Template
+Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:
+Collision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya Node Player, Tilemap, Grass sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu Struktur Project Template: ✍️ Mulai Buka Project Template, kemudian buka Shader Editor (berada dipanel bawah)."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Tutorials",
+      "item": "https://sarapan-malam-games.github.io/tutorial/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Membuat Interaksi Rumput Bergoyang | Godot 4",
+      "item": "https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Membuat Interaksi Rumput Bergoyang | Godot 4",
+  "name": "Membuat Interaksi Rumput Bergoyang | Godot 4",
+  "description": "Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.\n🖐 Persiapan Unduh Project Template Berikut untuk memulai:\nProject Template\nPada Project Template diatas sudah kita kita atur beberapa hal, seperti:\nCollision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya Node Player, Tilemap, Grass sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu Struktur Project Template: ✍️ Mulai Buka Project Template, kemudian buka Shader Editor (berada dipanel bawah).",
+  "keywords": [
+    "Tutorial", "Godot4", "2D", "Grass Sway"
+  ],
+  "articleBody": "\rAgar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.\n🖐 Persiapan Unduh Project Template Berikut untuk memulai:\nProject Template\nPada Project Template diatas sudah kita kita atur beberapa hal, seperti:\nCollision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya Node Player, Tilemap, Grass sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu Struktur Project Template: ✍️ Mulai Buka Project Template, kemudian buka Shader Editor (berada dipanel bawah).\nKlik File -\u003e New Shader.\nSetelah popup Create Shader muncul, arahkan Path ke res://shaders/ dan simpan dengan nama WindSway.gdshader atau bebas sesuai keingann teman-teman. Sekarang kita perlu membuat salinan shader dari link 2D Wind Sway, open link itu kemudian copy paste kode shadernya ke file shader yang sudah kita buat sebelumnya. Kita perlu mengedit shader tesebut, dengan menambahkan variable dan statement yang kita butuhkan untuk membuat texture menjadi terlihat miring, nanti kita gunakan untuk membuat rumput bergoyang saat player menyentuhnya. Contoh bentuk texture menjadi miring (skew)\nKita buat variabel baru dengan nama skew. uniform float skew: hint_range(-500.0, 500.0) = 0; Kemudian kita tambahkan statement berikut pada fungsi vertex if (skew != 0.0) { VERTEX.x += max(0.0, (1.0-UV.y) - heightOffset) * (skew / 12.0); } Kita simpan file shadernya dengan cara Klik File -\u003e Save File Sekarang saatnya menerapkan shader yang sudah kita buat dan membuat script untuk node Grass.\nMenerapkan shader:\nOpen node Grass lalu Klik node Sprite2d. Tambahkan ShaderMaterial pada node Sprite2d Klik Resource kemudian centang properti Local To Scene pada ShaderMaterial. ShaderMaterial termasuk type data Resource karena itu semua data didalamnya akan dibagikan kesemua instance secara default, jadi untuk membuatnya unik disetiap instance kita perlu mencetang properti Local To Scene\nPada properti ShaderMaterial tambahkan shader yang sudah kita buat sebelumnya, dengan cara drag drop file shader ke properti Shader. Kita sudah mempunyai shader yang dibutuhkan untuk membuat texture menjadi miring, kalian bisa bereksperimen dengan mengubah-ubah nilai parameter pada shader tersebut. Cobalah untuk mengubah parameter Skew, menjadi 300 atau -300, nanti akan terlihat bentuk texture menjadi agak condong ke kanan atau kiri. Menerapkan Script:\nKlik icon script pada node Grass, kemudian pada fungsi _ready tambahkan potongan kode berikut: %Sprite2d.material.set_shader_parameter(\"offset\", randi() % 3) connect(\"body_entered\", _on_sway) connect(\"body_exited\", _on_sway) Kemudian buatlah fungsi _on_sway untuk menerima signal body_entered dan body_exited if body is Player: var direction = global_position.direction_to(body.global_position) var skew = clamp(remap(body.velocity.length() * sign(-direction.x), -body.SPEED, body.SPEED, min_skew, max_skew), min_skew, max_skew) var tween = create_tween() tween.tween_property(%Sprite2d.material, \"skew\", skew, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC) tween.tween_property(%Sprite2d.material, \"skew\", 0.0, 2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC) Jadi saat node Player menyentuh atau keluar dari area collision node Grass, node Grass akan bereaksi dan bergerak. Sekarang buka node Level, kemudian taruh node Grass dengan drag drop ke dalamnya, taruh posisi sesuai keinginan teman-teman.\n👏 Referensi https://sarapan-malam-games.itch.io/interactive-foliage https://zackbellgames.com/2014/11/11/sprite-skewing-for-procedural-animation/ https://forum.defold.com/t/2d-pixelated-grass-waving-shader/56501/42 ",
+  "wordCount" : "466",
+  "inLanguage": "en",
+  "image":"https://sarapan-malam-games.github.io/img/cover.png","datePublished": "2022-09-16T09:43:10+08:00",
+  "dateModified": "2022-09-16T09:43:10+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Sarapan"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Sarapan Malam",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sarapan-malam-games.github.io/favicon/favicon-16x16.png"
+    }
+  }
+}
+</script>
+</head>
+
+<body class=" dark" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://sarapan-malam-games.github.io/" accesskey="h" title="Sarapan Malam (Alt + H)">Sarapan Malam</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://sarapan-malam-games.github.io/project/" title="🗃️ Projects">
+                    <span>🗃️ Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/solution/" title="💡 Solutions">
+                    <span>💡 Solutions</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/tutorial/" title="📖 Tutorials">
+                    <span>📖 Tutorials</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.github.io/search/" title="🔍 Search (Alt &#43; /)" accesskey=/>
+                    <span>🔍 Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sarapan-malam-games.itch.io/" title="Itch">
+                    <span>Itch</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/sarapan-malam-games" title="Github">
+                    <span>Github</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://sarapan-malam-games.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://sarapan-malam-games.github.io/tutorial/">Tutorials</a></div>
+    <h1 class="post-title">
+      Membuat Interaksi Rumput Bergoyang | Godot 4
+    </h1>
+    <div class="post-meta"><span title='2022-09-16 09:43:10 +0800 +08'>September 16, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;466 words&nbsp;·&nbsp;Sarapan
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#-persiapan" aria-label="🖐 Persiapan">🖐 Persiapan</a></li>
+                <li>
+                    <a href="#-mulai" aria-label="✍️ Mulai">✍️ Mulai</a></li>
+                <li>
+                    <a href="#-referensi" aria-label="👏 Referensi">👏 Referensi</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><img loading="lazy" src="img/cover.png" alt="Cover"  />
+</p>
+<hr>
+<p>Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.</p>
+<p><img loading="lazy" src="img/preview.gif" alt="Preview"  />
+</p>
+<hr>
+<h2 id="-persiapan">🖐 Persiapan<a hidden class="anchor" aria-hidden="true" href="#-persiapan">#</a></h2>
+<p>Unduh Project Template Berikut untuk memulai:</p>
+<blockquote>
+<p><a href="https://github.com/sarapan-malam-games/godot-tutorials/raw/main/level-dasar/membuat-interaksi-rumput-bergoyang/membuat-interaksi-rumput-bergoyang.zip">Project Template</a></p>
+</blockquote>
+<p>Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:</p>
+<ul>
+<li>
+<p><em>Collision Layer</em> Dan <em>Collision Mask</em> sudah kita atur berdasarkan jenis objeknya
+<figure>
+        <img loading="lazy" src="img/collision-layer-mask.png"
+             alt="Collision layer &amp; Mask" height="200px"/> 
+    </figure>
+</p>
+</li>
+<li>
+<p>Node <strong>Player</strong>, <strong>Tilemap</strong>, <strong>Grass</strong> sudah kita siapkan, teman-teman tinggal memodifikasinya jika perlu
+<figure>
+        <img loading="lazy" src="img/nodes.png"
+             alt="Nodes" height="200px"/> 
+    </figure>
+</p>
+</li>
+</ul>
+<p>Struktur Project Template:
+<figure>
+    <img loading="lazy" src="img/struktur-project-template.png"
+         alt="Struktur Project Template" height="400px"/> 
+</figure>
+</p>
+<hr>
+<h2 id="-mulai">✍️ Mulai<a hidden class="anchor" aria-hidden="true" href="#-mulai">#</a></h2>
+<ol>
+<li>
+<p>Buka Project Template, kemudian buka <strong>Shader Editor</strong> (berada dipanel bawah).</p>
+<p><img loading="lazy" src="img/shader-editor.png" alt="Shader Editor"  />
+</p>
+<ol>
+<li>
+<p>Klik File -&gt; New Shader.</p>
+</li>
+<li>
+<p>Setelah popup Create Shader muncul, arahkan Path ke <em>res://shaders/</em> dan simpan dengan nama <em>WindSway.gdshader</em> atau bebas sesuai keingann teman-teman.
+<img loading="lazy" src="img/create-shader-popup.png" alt="Create Shader Popup"  />
+</p>
+</li>
+<li>
+<p>Sekarang kita perlu membuat salinan shader dari link <a href="https://godotshaders.com/shader/2d-wind-sway/">2D Wind Sway</a>, open link itu kemudian copy paste kode shadernya ke file shader yang sudah kita buat sebelumnya.
+<img loading="lazy" src="img/2d-wind-sway.png" alt="2D Wind Sway Shader"  />
+</p>
+</li>
+<li>
+<p>Kita perlu mengedit shader tesebut, dengan menambahkan variable dan statement yang kita butuhkan untuk membuat texture menjadi terlihat miring, nanti kita gunakan untuk membuat rumput bergoyang saat player menyentuhnya.
+<figure>
+            <img loading="lazy" src="https://community.monogame.net/uploads/default/original/2X/9/9c91007620b30f456548253e4f4baa0bd588fab8.png"
+                 alt="Contoh Skew" height="200px"/> <figcaption>
+                    <p>Contoh bentuk texture menjadi miring (skew)</p>
+                </figcaption>
+        </figure>
+</p>
+<ol>
+<li>Kita buat variabel baru dengan nama <em>skew</em>.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">uniform</span> <span class="kr">float</span> <span class="nx">skew</span><span class="o">:</span> <span class="nx">hint_range</span><span class="p">(</span><span class="o">-</span><span class="mf">500.0</span><span class="p">,</span> <span class="mf">500.0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span></code></pre></div></li>
+<li>Kemudian kita tambahkan statement berikut pada fungsi vertex
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">skew</span> <span class="o">!=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">VERTEX</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="nx">UV</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="o">-</span> <span class="nx">heightOffset</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">skew</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>Kita simpan file shadernya dengan cara Klik File -&gt; Save File</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>
+<p>Sekarang saatnya menerapkan shader yang sudah kita buat dan membuat script untuk node <strong>Grass</strong>.</p>
+<ul>
+<li>
+<p>Menerapkan shader:</p>
+<ol>
+<li>Open node <strong>Grass</strong> lalu Klik node <strong>Sprite2d</strong>.
+<figure>
+              <img loading="lazy" src="img/node-grass.png"
+                   alt="Node Grass" height="230px"/> 
+          </figure>
+</li>
+<li>Tambahkan <em>ShaderMaterial</em> pada node <strong>Sprite2d</strong>
+<figure>
+              <img loading="lazy" src="img/menambahkan-shader-material.gif"
+                   alt="Menambahkan Shader Material" height="400px"/> 
+          </figure>
+</li>
+<li>Klik Resource kemudian centang properti <em>Local To Scene</em> pada <em>ShaderMaterial</em>.
+<figure>
+              <img loading="lazy" src="img/centang-local-to-scene.gif"
+                   alt="Centang Local To Scene" height="400px"/> 
+          </figure>
+
+<blockquote>
+<p><em>ShaderMaterial</em> termasuk type data <em>Resource</em> karena itu semua data didalamnya akan dibagikan kesemua instance secara default, jadi untuk membuatnya unik disetiap instance kita perlu mencetang properti <em>Local To Scene</em></p>
+</blockquote>
+</li>
+<li>Pada properti <em>ShaderMaterial</em> tambahkan shader yang sudah kita buat sebelumnya, dengan cara drag drop file shader ke properti <em>Shader</em>.
+<figure>
+              <img loading="lazy" src="img/menambahkan-shader.gif"
+                   alt="Menambahkan Shader" height="400px"/> 
+          </figure>
+
+Kita sudah mempunyai shader yang dibutuhkan untuk membuat texture menjadi miring, kalian bisa bereksperimen dengan mengubah-ubah nilai parameter pada shader tersebut.
+<figure>
+              <img loading="lazy" src="img/parameter-shader.png"
+                   alt="Parameter Shader" height="400px"/> 
+          </figure>
+
+Cobalah untuk mengubah parameter <em>Skew</em>, menjadi 300 atau -300, nanti akan terlihat bentuk texture menjadi agak condong ke kanan atau kiri.
+<figure>
+              <img loading="lazy" src="img/test-parameter-skew.gif"
+                   alt="Test Parameter Skew" height="300px"/> 
+          </figure>
+</li>
+</ol>
+</li>
+<li>
+<p>Menerapkan Script:</p>
+<ol>
+<li>Klik icon script pada node <strong>Grass</strong>, kemudian pada fungsi <em>_ready</em> tambahkan potongan kode berikut:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="o">%</span><span class="nx">Sprite2d</span><span class="p">.</span><span class="nx">material</span><span class="p">.</span><span class="nx">set_shader_parameter</span><span class="p">(</span><span class="s2">&#34;offset&#34;</span><span class="p">,</span> <span class="nx">randi</span><span class="p">()</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">connect</span><span class="p">(</span><span class="s2">&#34;body_entered&#34;</span><span class="p">,</span> <span class="nx">_on_sway</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">connect</span><span class="p">(</span><span class="s2">&#34;body_exited&#34;</span><span class="p">,</span> <span class="nx">_on_sway</span><span class="p">)</span>
+</span></span></code></pre></div></li>
+<li>Kemudian buatlah fungsi <em>_on_sway</em> untuk menerima signal <em>body_entered</em> dan <em>body_exited</em>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">body</span> <span class="nx">is</span> <span class="nx">Player</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">direction</span> <span class="o">=</span> <span class="nx">global_position</span><span class="p">.</span><span class="nx">direction_to</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">global_position</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">skew</span> <span class="o">=</span> <span class="nx">clamp</span><span class="p">(</span><span class="nx">remap</span><span class="p">(</span><span class="nx">body</span><span class="p">.</span><span class="nx">velocity</span><span class="p">.</span><span class="nx">length</span><span class="p">()</span> <span class="o">*</span> <span class="nx">sign</span><span class="p">(</span><span class="o">-</span><span class="nx">direction</span><span class="p">.</span><span class="nx">x</span><span class="p">),</span> <span class="o">-</span><span class="nx">body</span><span class="p">.</span><span class="nx">SPEED</span><span class="p">,</span> <span class="nx">body</span><span class="p">.</span><span class="nx">SPEED</span><span class="p">,</span> <span class="nx">min_skew</span><span class="p">,</span> <span class="nx">max_skew</span><span class="p">),</span> <span class="nx">min_skew</span><span class="p">,</span> <span class="nx">max_skew</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">tween</span> <span class="o">=</span> <span class="nx">create_tween</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tween</span><span class="p">.</span><span class="nx">tween_property</span><span class="p">(</span><span class="o">%</span><span class="nx">Sprite2d</span><span class="p">.</span><span class="nx">material</span><span class="p">,</span> <span class="s2">&#34;skew&#34;</span><span class="p">,</span> <span class="nx">skew</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">).</span><span class="nx">set_ease</span><span class="p">(</span><span class="nx">Tween</span><span class="p">.</span><span class="nx">EASE_OUT</span><span class="p">).</span><span class="nx">set_trans</span><span class="p">(</span><span class="nx">Tween</span><span class="p">.</span><span class="nx">TRANS_CUBIC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tween</span><span class="p">.</span><span class="nx">tween_property</span><span class="p">(</span><span class="o">%</span><span class="nx">Sprite2d</span><span class="p">.</span><span class="nx">material</span><span class="p">,</span> <span class="s2">&#34;skew&#34;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">2</span><span class="p">).</span><span class="nx">set_ease</span><span class="p">(</span><span class="nx">Tween</span><span class="p">.</span><span class="nx">EASE_OUT</span><span class="p">).</span><span class="nx">set_trans</span><span class="p">(</span><span class="nx">Tween</span><span class="p">.</span><span class="nx">TRANS_ELASTIC</span><span class="p">)</span>
+</span></span></code></pre></div>Jadi saat node <strong>Player</strong> menyentuh atau keluar dari area collision node <strong>Grass</strong>, node <em>Grass</em> akan bereaksi dan bergerak.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>Sekarang buka node <strong>Level</strong>, kemudian taruh node <strong>Grass</strong> dengan drag drop ke dalamnya, taruh posisi sesuai keinginan teman-teman.</p>
+<p><img loading="lazy" src="img/menaruh-node-grass.gif" alt="Menaruh Node Grass"  />
+</p>
+</li>
+</ol>
+<hr>
+<h2 id="-referensi">👏 Referensi<a hidden class="anchor" aria-hidden="true" href="#-referensi">#</a></h2>
+<ul>
+<li><a href="https://sarapan-malam-games.itch.io/interactive-foliage">https://sarapan-malam-games.itch.io/interactive-foliage</a></li>
+<li><a href="https://zackbellgames.com/2014/11/11/sprite-skewing-for-procedural-animation/">https://zackbellgames.com/2014/11/11/sprite-skewing-for-procedural-animation/</a></li>
+<li><a href="https://forum.defold.com/t/2d-pixelated-grass-waving-shader/56501/42">https://forum.defold.com/t/2d-pixelated-grass-waving-shader/56501/42</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://sarapan-malam-games.github.io/tags/tutorial/">Tutorial</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/godot4/">Godot4</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/2d/">2D</a></li>
+      <li><a href="https://sarapan-malam-games.github.io/tags/grass-sway/">Grass Sway</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Menggerakan Karakter Platformer - Level Dasar | Godot 4</span>
+  </a>
+</nav>
+
+  </footer><div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function () {
+    
+    
+    if (window.location.hostname == "localhost") return;
+
+    var dsq = document.createElement("script");
+    dsq.type = "text/javascript";
+    dsq.async = true;
+    var disqus_shortname = "sarapan-malam-games";
+    dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+    (
+      document.getElementsByTagName("head")[0] ||
+      document.getElementsByTagName("body")[0]
+    ).appendChild(dsq);
+  })();
+</script>
+<noscript
+  >Please enable JavaScript to view the
+  <a href="https://disqus.com/?ref_noscript"
+    >comments powered by Disqus.</a
+  ></noscript
+>
+<a href="https://disqus.com/" class="dsq-brlink"
+  >comments powered by <span class="logo-disqus">Disqus</span></a
+>
+
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://sarapan-malam-games.github.io/">Sarapan Malam</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
