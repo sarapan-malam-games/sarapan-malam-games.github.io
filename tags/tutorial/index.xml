@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tutorial on Sarapan Malam</title>
-    <link>https://sarapan-malam-games.github.io/tags/tutorial/</link>
+    <link>https://sarapanmalam.games/tags/tutorial/</link>
     <description>Recent content in Tutorial on Sarapan Malam</description>
     <image>
-      <url>https://sarapan-malam-games.github.io/papermod-cover.png</url>
-      <link>https://sarapan-malam-games.github.io/papermod-cover.png</link>
+      <url>https://sarapanmalam.games/papermod-cover.png</url>
+      <link>https://sarapanmalam.games/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Sep 2022 09:43:10 +0800</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Sep 2022 09:43:10 +0800</lastBuildDate><atom:link href="https://sarapanmalam.games/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Membuat Interaksi Rumput Bergoyang | Godot 4</title>
-      <link>https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/</link>
+      <link>https://sarapanmalam.games/tutorial/membuat-interaksi-rumput-bergoyang/</link>
       <pubDate>Fri, 16 Sep 2022 09:43:10 +0800</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/</guid>
-      <description>Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
+      <guid>https://sarapanmalam.games/tutorial/membuat-interaksi-rumput-bergoyang/</guid>
+      <description>Agar terlihat menarik dan hidup pada sebuah game tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
 🖐 Persiapan Unduh Project Template Berikut untuk memulai:
 Project Template
 Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:
@@ -25,10 +25,10 @@ Collision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya No
     
     <item>
       <title>Menggerakan Karakter Platformer - Level Dasar | Godot 4</title>
-      <link>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</link>
+      <link>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</link>
       <pubDate>Thu, 08 Sep 2022 07:41:30 +0800</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</guid>
+      <guid>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</guid>
       <description>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
 🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
 Project Template

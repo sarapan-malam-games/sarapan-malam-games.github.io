@@ -14,14 +14,14 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
 ✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
 @export var movespeed := 10000.">
 <meta name="author" content="Sarapan">
-<link rel="canonical" href="https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/">
+<link rel="canonical" href="https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.js" onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://sarapan-malam-games.github.io/favicon/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://sarapan-malam-games.github.io/favicon/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://sarapan-malam-games.github.io/favicon/apple-touch-icon.png">
-<link rel="mask-icon" href="https://sarapan-malam-games.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://sarapanmalam.games/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sarapanmalam.games/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sarapanmalam.games/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sarapanmalam.games/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sarapanmalam.games/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <noscript>
@@ -40,13 +40,13 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
 ✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut
 @export var movespeed := 10000." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/" />
-<meta property="og:image" content="https://sarapan-malam-games.github.io/img/cover.png" /><meta property="article:section" content="tutorial" />
+<meta property="og:url" content="https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/" />
+<meta property="og:image" content="https://sarapanmalam.games/img/cover.png" /><meta property="article:section" content="tutorial" />
 <meta property="article:published_time" content="2022-09-08T07:41:30+08:00" />
 <meta property="article:modified_time" content="2022-09-08T07:41:30+08:00" /><meta property="og:site_name" content="Sarapan Malam" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://sarapan-malam-games.github.io/img/cover.png" />
+<meta name="twitter:image" content="https://sarapanmalam.games/img/cover.png" />
 <meta name="twitter:title" content="Menggerakan Karakter Platformer - Level Dasar | Godot 4"/>
 <meta name="twitter:description" content="Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
 🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
@@ -65,13 +65,13 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
       "@type": "ListItem",
       "position":  1 ,
       "name": "Tutorials",
-      "item": "https://sarapan-malam-games.github.io/tutorial/"
+      "item": "https://sarapanmalam.games/tutorial/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Menggerakan Karakter Platformer - Level Dasar | Godot 4",
-      "item": "https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/"
+      "item": "https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/"
     }
   ]
 }
@@ -89,7 +89,7 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
   "articleBody": "\rPada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.\n🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu\nProject Template\nDidalam Project Template sudah berisi node Player dan Ground. Node Ground digunakan untuk tempat node Player Berpijak nantinya.\n✍️ Mulai Setelah Project Template terbuka, klik icon script pada node Player Didalam script node Player buat variable seperti berikut\n@export var movespeed := 10000.0 @export var jump_force := 1000.0 @export var gravity := 3000.0 @export var direction := 0.0 Saya akan menjelaskan kegunaan dari variable diatas\nmovespeed mengatur kecepatan gerak player jump_force mengatur kekuatan / ketinggian player saat melompat gravity mengatur gravitasi player direction digunakan sebagai penanda yang menampung nilai dari hasil Input (arah kiri dan kanan) dari user dan juga mengatur arah gerak player Catatan: Nilai variabel movespeed, jump_force dan gravity tergantung pada ukuran Sprite. Kamu harus menyesuaikan nilai variabelnya supaya lebih responsif.\nTambahkan beberapa baris kode berikut\nfunc _physics_process(delta: float) -\u003e void:\rmove_and_slide()\rif not is_on_floor():\rvelocity.y += gravity * delta\rdirection = Input.get_axis(\"move_left\", \"move_right\")\rvelocity.x = (movespeed * direction) * delta\rif direction:\r$Sprite2d.flip_h = direction \u003c= 0.0\rif Input.is_action_just_pressed(\"jump\") and is_on_floor():\rvelocity.y = -jump_force\rif Input.is_action_just_released(\"jump\") and velocity.y \u003c -jump_force/2:\rvelocity.y = -jump_force/2 Saya akan menjelaskan apa saja maksud dari barisan kode diatas, kita mulai dengan kode dibawah\nfunc _physics_process(delta: float) -\u003e void: Fungsi akan selalu dipanggil selama game berjalan, secara default fungsi ini dipanggil 60 kali per detik. pada fungsi ini kita akan melakukan perhitungan fisika. Parameter delta pada fungsi _physics_process adalah waktu antara setiap frame, kita dapat mengkalikan kecepatan gerak node Player dengan parameter ini, sehingga node Player bergerak berdasarkan piksel per detik, bukan piksel per frame.\nSelanjutnya kita tambahkan sebuah fungsi dibawah yang akan mengkalkulasi perhitungan dari variable velocity, sehingga node Player bisa bergerak dari posisi sekarang ke posisi lainnya.\nmove_and_slide() Kita akan membuat node Player memiliki gravitasi, jika node Player tidak menyentuh tanah / pijakan maka node player akan bergerak ke bawah dan akan berhenti sampai dia menemukan tanah / pijakan, dengan itu kita menggunakan kode berikut.\nif not is_on_floor():\rvelocity.y += gravity * delta Sekarang kita mengatur arah gerak untuk node Player, agar nanti node Player bisa bergerak ke arah kanan dan kiri. Pada argument Input.get_axis(... akan mengkalkulasi nilai input dari user ketika user menekan key dengan alias move_left atau move_right kemudian nilai tersebut kita tetapkan ke variabel direction, dengan hal itu kita sudah mengatur arah gerak untuk node Player.\ndirection = Input.get_axis(\"move_left\", \"move_right\") Setelah arah gerak kita atur, selanjutnya kita membuat node Player bisa bergerak / berjalan horizontal dengan cara mengkalikan variabel movespeed, direction dan delta dan hasil nilainya kita tetapkan ke variable velocity.x, dengan itu kita mendapatkan nilai besaran yang kita butuhkan untuk bisa bergerak / berjalan secara horizontal.\nvelocity.x = movespeed - direction - delta; Selanjutnya kita mengatur posisi texture sesuai dengan arah gerak node Player. Kita buat kondisi jika variabel direction bukan sama dengan 0.0, kemudan untuk nilai $Sprite2d.flip_h kita tetapkan nilai dengan kondisi jika direction kurang dari 0.0 maka $Sprite2d.flip_h bernilai true.\nNote: .flip_h adalah property dari node Sprite2d\nif direction: $Sprite2d.flip_h = direction \u003c= 0.0 Sekarang saatnya kita membuat node Player bisa melompat dengan cara, membuat sebuah kondisi dimana saat user menekan key dengan alias jump dan posisi node Player berada pada tanah / sedang berpijak, maka kita menetapkan variabel velocity.y dengan nilai negatif jump_force agar posisi node Player bergerak keatas.\nif Input.is_action_just_pressed(\"jump\") and is_on_floor():\rvelocity.y = -jump_force Oke saya rasa sampai disini node Player kita sudah bisa bergerak sesuai dengan harapakan kita sebelumnya yaitu bisa berjalan, jatuh dan melompat.\nSemoga tutorial kita kali ini dapat teman-teman pahami dan dipraktekan dengan baik. Terimakasih telah membaca dan jangan lupa untuk mempraktekkannya.\n👏 Referensi https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html https://godottutorials.pro/how-to-make-games-godot/ https://kidscancode.org/godot_recipes/2d/platform_character/ http://kidscancode.org/godot_recipes/basics/understanding_delta/ ",
   "wordCount" : "618",
   "inLanguage": "en",
-  "image":"https://sarapan-malam-games.github.io/img/cover.png","datePublished": "2022-09-08T07:41:30+08:00",
+  "image":"https://sarapanmalam.games/img/cover.png","datePublished": "2022-09-08T07:41:30+08:00",
   "dateModified": "2022-09-08T07:41:30+08:00",
   "author":{
     "@type": "Person",
@@ -97,14 +97,14 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/"
+    "@id": "https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Sarapan Malam",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sarapan-malam-games.github.io/favicon/favicon-16x16.png"
+      "url": "https://sarapanmalam.games/favicon/favicon-16x16.png"
     }
   }
 }
@@ -116,28 +116,28 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://sarapan-malam-games.github.io/" accesskey="h" title="Sarapan Malam (Alt + H)">Sarapan Malam</a>
+            <a href="https://sarapanmalam.games/" accesskey="h" title="Sarapan Malam (Alt + H)">Sarapan Malam</a>
             <div class="logo-switches">
             </div>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://sarapan-malam-games.github.io/project/" title="🗃️ Projects">
+                <a href="https://sarapanmalam.games/project/" title="🗃️ Projects">
                     <span>🗃️ Projects</span>
                 </a>
             </li>
             <li>
-                <a href="https://sarapan-malam-games.github.io/solution/" title="💡 Solutions">
+                <a href="https://sarapanmalam.games/solution/" title="💡 Solutions">
                     <span>💡 Solutions</span>
                 </a>
             </li>
             <li>
-                <a href="https://sarapan-malam-games.github.io/tutorial/" title="📖 Tutorials">
+                <a href="https://sarapanmalam.games/tutorial/" title="📖 Tutorials">
                     <span>📖 Tutorials</span>
                 </a>
             </li>
             <li>
-                <a href="https://sarapan-malam-games.github.io/search/" title="🔍 Search (Alt &#43; /)" accesskey=/>
+                <a href="https://sarapanmalam.games/search/" title="🔍 Search (Alt &#43; /)" accesskey=/>
                     <span>🔍 Search</span>
                 </a>
             </li>
@@ -170,7 +170,7 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://sarapan-malam-games.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://sarapan-malam-games.github.io/tutorial/">Tutorials</a></div>
+    <div class="breadcrumbs"><a href="https://sarapanmalam.games/">Home</a>&nbsp;»&nbsp;<a href="https://sarapanmalam.games/tutorial/">Tutorials</a></div>
     <h1 class="post-title">
       Menggerakan Karakter Platformer - Level Dasar | Godot 4
     </h1>
@@ -302,20 +302,20 @@ Terimakasih telah membaca dan jangan lupa untuk mempraktekkannya.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://sarapan-malam-games.github.io/tags/tutorial/">Tutorial</a></li>
-      <li><a href="https://sarapan-malam-games.github.io/tags/platformer/">Platformer</a></li>
-      <li><a href="https://sarapan-malam-games.github.io/tags/pemula/">Pemula</a></li>
-      <li><a href="https://sarapan-malam-games.github.io/tags/characterbody2d/">CharacterBody2D</a></li>
-      <li><a href="https://sarapan-malam-games.github.io/tags/godot4/">Godot4</a></li>
-      <li><a href="https://sarapan-malam-games.github.io/tags/2d/">2D</a></li>
+      <li><a href="https://sarapanmalam.games/tags/tutorial/">Tutorial</a></li>
+      <li><a href="https://sarapanmalam.games/tags/platformer/">Platformer</a></li>
+      <li><a href="https://sarapanmalam.games/tags/pemula/">Pemula</a></li>
+      <li><a href="https://sarapanmalam.games/tags/characterbody2d/">CharacterBody2D</a></li>
+      <li><a href="https://sarapanmalam.games/tags/godot4/">Godot4</a></li>
+      <li><a href="https://sarapanmalam.games/tags/2d/">2D</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/">
+  <a class="prev" href="https://sarapanmalam.games/tutorial/membuat-interaksi-rumput-bergoyang/">
     <span class="title">« Prev</span>
     <br>
     <span>Membuat Interaksi Rumput Bergoyang | Godot 4</span>
   </a>
-  <a class="next" href="https://sarapan-malam-games.github.io/tutorial/test/">
+  <a class="next" href="https://sarapanmalam.games/tutorial/test/">
     <span class="title">Next »</span>
     <br>
     <span>Title</span>
@@ -354,7 +354,7 @@ Terimakasih telah membaca dan jangan lupa untuk mempraktekkannya.</p>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://sarapan-malam-games.github.io/">Sarapan Malam</a></span>
+    <span>&copy; 2022 <a href="https://sarapanmalam.games/">Sarapan Malam</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

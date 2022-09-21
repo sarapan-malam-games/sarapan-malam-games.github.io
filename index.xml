@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Sarapan Malam</title>
-    <link>https://sarapan-malam-games.github.io/</link>
+    <link>https://sarapanmalam.games/</link>
     <description>Recent content on Sarapan Malam</description>
     <image>
-      <url>https://sarapan-malam-games.github.io/papermod-cover.png</url>
-      <link>https://sarapan-malam-games.github.io/papermod-cover.png</link>
+      <url>https://sarapanmalam.games/papermod-cover.png</url>
+      <link>https://sarapanmalam.games/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 16 Sep 2022 09:43:10 +0800</lastBuildDate><atom:link href="https://sarapan-malam-games.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Sep 2022 09:43:10 +0800</lastBuildDate><atom:link href="https://sarapanmalam.games/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Membuat Interaksi Rumput Bergoyang | Godot 4</title>
-      <link>https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/</link>
+      <link>https://sarapanmalam.games/tutorial/membuat-interaksi-rumput-bergoyang/</link>
       <pubDate>Fri, 16 Sep 2022 09:43:10 +0800</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/tutorial/membuat-interaksi-rumput-bergoyang/</guid>
-      <description>Agar terlihat menarik dan hidup pada sebuah gim tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
+      <guid>https://sarapanmalam.games/tutorial/membuat-interaksi-rumput-bergoyang/</guid>
+      <description>Agar terlihat menarik dan hidup pada sebuah game tentunya kita perlu membuat interaksi karakter ke objek lingkungan sekitar, salah satunya rumput atau dedaunan. Ditutorial kali ini kita akan membuatnya dengan cara sederhana tetapi dengan hasil yang bagus.
 🖐 Persiapan Unduh Project Template Berikut untuk memulai:
 Project Template
 Pada Project Template diatas sudah kita kita atur beberapa hal, seperti:
@@ -25,10 +25,10 @@ Collision Layer Dan Collision Mask sudah kita atur berdasarkan jenis objeknya No
     
     <item>
       <title>Menggerakan Karakter Platformer - Level Dasar | Godot 4</title>
-      <link>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</link>
+      <link>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</link>
       <pubDate>Thu, 08 Sep 2022 07:41:30 +0800</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/tutorial/menggerakan-karakter-platformer-dasar/</guid>
+      <guid>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</guid>
       <description>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
 🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
 Project Template
@@ -39,29 +39,30 @@ Didalam Project Template sudah berisi node Player dan Ground. Node Ground diguna
     
     <item>
       <title>Test</title>
-      <link>https://sarapan-malam-games.github.io/solution/test/</link>
+      <link>https://sarapanmalam.games/solution/test/</link>
       <pubDate>Wed, 07 Sep 2022 02:22:16 +0800</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/solution/test/</guid>
+      <guid>https://sarapanmalam.games/solution/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Title</title>
-      <link>https://sarapan-malam-games.github.io/tutorial/test/</link>
+      <link>https://sarapanmalam.games/tutorial/test/</link>
       <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/tutorial/test/</guid>
+      <guid>https://sarapanmalam.games/tutorial/test/</guid>
       <description>Test Tutorial post </description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://sarapan-malam-games.github.io/project/</link>
+      <link>https://sarapanmalam.games/project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sarapan-malam-games.github.io/project/</guid>
-      <description>Game Sources Mini JumpGame like Doodle Jump</description>
+      <guid>https://sarapanmalam.games/project/</guid>
+      <description>Game Sources Mini JumpGame like Doodle Jump
+test</description>
     </item>
     
     
