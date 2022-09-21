@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CharacterBody2D on Sarapan Malam</title>
-    <link>https://sarapanmalam.games/tags/characterbody2d/</link>
+    <link>https://www.sarapanmalam.games/tags/characterbody2d/</link>
     <description>Recent content in CharacterBody2D on Sarapan Malam</description>
     <image>
-      <url>https://sarapanmalam.games/papermod-cover.png</url>
-      <link>https://sarapanmalam.games/papermod-cover.png</link>
+      <url>https://www.sarapanmalam.games/papermod-cover.png</url>
+      <link>https://www.sarapanmalam.games/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 08 Sep 2022 07:41:30 +0800</lastBuildDate><atom:link href="https://sarapanmalam.games/tags/characterbody2d/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Sep 2022 07:41:30 +0800</lastBuildDate><atom:link href="https://www.sarapanmalam.games/tags/characterbody2d/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Menggerakan Karakter Platformer - Level Dasar | Godot 4</title>
-      <link>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</link>
+      <link>https://www.sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</link>
       <pubDate>Thu, 08 Sep 2022 07:41:30 +0800</pubDate>
       
-      <guid>https://sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</guid>
+      <guid>https://www.sarapanmalam.games/tutorial/menggerakan-karakter-platformer-dasar/</guid>
       <description>Pada tutorial ini kita akan belajar menggerakan karakter player agar dapat berjalan, jatuh dan melompat.
 🖐 Persiapan Kita akan mulai dengan mendownload Project Template terlebih dahulu
 Project Template
